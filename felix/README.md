@@ -61,6 +61,8 @@ We've used the 12-layer (NOT Pretrained hub modules) [''BERT-Base'' model](https
 of our experiments,unless otherwise stated. Then convert the original TSV
 datasets into TFRecord format. The discofuse dataset can be found here(https://github.com/google-research-datasets/discofuse)
 
+
+Make sure to use BERT Based uncased (vocab_size=30522) or change the felix/discofuse/felix-config vocab_size accordingly 
 ```
 # Preprocess
 export BERT_BASE_DIR=/path/to/uncased_L-12_H-768_A-12
@@ -102,6 +104,8 @@ Train the models on CPU/GPU.
 
 ```
 # Train
+
+CUDA_VISIBLE_DEVICES="" # force train on CPU
 python run_felix.py \
     --train_file="${OUTPUT_DIR}/train.tfrecord" \
     --eval_file="${OUTPUT_DIR}/dev.tfrecord" \
