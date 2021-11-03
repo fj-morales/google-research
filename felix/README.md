@@ -44,6 +44,7 @@ After setting the variables in the beginning of the script.
 ```
 # Label map construction
 export OUTPUT_DIR=/path/to/output
+export USE_POINTING='True'
 
 python phrase_vocabulary_constructor_main \
 --output="${OUTPUT_DIR}/label_map.json" \
