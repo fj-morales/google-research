@@ -20,8 +20,12 @@ Cloud TPU.
 
 ### Requirements
   pip install tensorflow
+  
   pip install tensorflow-gpu (if tf==2.0)
+  
   pip install tf-models-official
+  
+  pip install frozendict
 
 
 Running an experiment with Felix consists of the following steps:
