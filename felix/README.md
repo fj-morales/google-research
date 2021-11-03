@@ -18,6 +18,12 @@ Cloud TPU.
 
 ## Usage Instructions
 
+### Requirements
+  pip install tensorflow
+  pip install tensorflow-gpu (if tf==2.0)
+  pip install tf-models-official
+
+
 Running an experiment with Felix consists of the following steps:
 
 1. Create label_map for tagging model
