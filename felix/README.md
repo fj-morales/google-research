@@ -52,7 +52,7 @@ After setting the variables in the beginning of the script.
 export OUTPUT_DIR=/path/to/output
 export USE_POINTING='True'
 
-python phrase_vocabulary_constructor_main \
+python phrase_vocabulary_constructor_main.py \
 --output="${OUTPUT_DIR}/label_map.json" \
 --use_pointing="${USE_POINTING}" \
 --do_lower_case="True"
