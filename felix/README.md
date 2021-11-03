@@ -65,7 +65,7 @@ datasets into TFRecord format. The discofuse dataset can be found here(https://g
 export BERT_BASE_DIR=/path/to/uncased_L-12_H-768_A-12
 export DISCOFUSE_DIR=/path/to/discofuse
 
-python preprocess_main \
+python preprocess_main.py \
   --input_file="${DISCOFUSE_DIR}/train.tsv" \
   --input_format="discofuse" \
   --output_file="${OUTPUT_DIR}/train.tfrecord" \
@@ -78,9 +78,9 @@ python preprocess_main \
   --split_on_punc="True"
 
 python preprocess_main.py \
-  --input_file="${DISCOFUSE_DIR}/tune.tsv" \
+  --input_file="${DISCOFUSE_DIR}/dev.tsv" \
   --input_format="discofuse" \
-  --output_file="${OUTPUT_DIR}/tune.tfrecord" \
+  --output_file="${OUTPUT_DIR}/dev.tfrecord" \
   --label_map_file="${OUTPUT_DIR}/label_map.json" \
   --vocab_file="${BERT_BASE_DIR}/vocab.txt" \
   --do_lower_case="True" \
@@ -101,9 +101,9 @@ Train the models on CPU/GPU.
 
 ```
 # Train
-python run_felix \
+python run_felix.py \
     --train_file="${OUTPUT_DIR}/train.tfrecord" \
-    --eval_file="${OUTPUT_DIR}/tune.tfrecord" \
+    --eval_file="${OUTPUT_DIR}/dev.tfrecord" \
     --model_dir_tagging="${OUTPUT_DIR}/model_tagging" \
     --bert_config_tagging="${DISCOFUSE_DIR}/felix_config.json" \
     --max_seq_length=128 \
@@ -124,9 +124,9 @@ python run_felix \
 
 rm -rf "${DATA_DIRECTORY}/model_insertion"
 mkdir "${DATA_DIRECTORY}/model_insertion"
-python run_felix \
+python run_felix.py \
     --train_file="${OUTPUT_DIR}/train.tfrecord.ins" \
-    --eval_file="${OUTPUT_DIR}/tune.tfrecord.ins" \
+    --eval_file="${OUTPUT_DIR}/dev.tfrecord.ins" \
     --model_dir_insertion="${OUTPUT_DIR}/model_insertion" \
     --bert_config_insertion="${DISCOFUSE_DIR}/felix_config.json" \
     --max_seq_length=128 \
@@ -163,7 +163,7 @@ for how to use Cloud TPUs.
 # Predict
 export PREDICTION_FILE=${OUTPUT_DIR}/pred.tsv
 
-python predict_main \
+python predict_main.py \
 --input_format="discofuse" \
 --predict_input_file="${DISCOFUSE_DIR}/test.tsv" \
 --predict_output_file="${PREDICTION_FILE}"\
