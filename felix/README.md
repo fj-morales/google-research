@@ -117,7 +117,7 @@ python run_felix.py \
     --steps_per_loop="100" \
     --train_insertion="False" \
     --use_pointing="${USE_POINTING}" \
-    --init_checkpoint="${BERT_DIR}/bert_model.ckpt" \
+    --init_checkpoint="${BERT_BASE_DIR}/bert_model.ckpt" \
     --learning_rate="0.00003" \
     --pointing_weight="1" \
     --input_format="recordio" \
@@ -138,7 +138,7 @@ python run_felix.py \
     --eval_batch_size="32" \
     --log_steps="100" \
     --steps_per_loop="100" \
-    --init_checkpoint="${BERT_DIR}/bert_model.ckpt" \
+    --init_checkpoint="${BERT_BASE_DIR}/bert_model.ckpt" \
     --use_pointing="${USE_POINTING}" \
     --learning_rate="0.00003" \
     --pointing_weight="1" \
