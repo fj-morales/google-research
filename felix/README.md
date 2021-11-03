@@ -130,7 +130,7 @@ python run_felix.py \
     --init_checkpoint="${BERT_BASE_DIR}/bert_model.ckpt" \
     --learning_rate="0.00003" \
     --pointing_weight="1" \
-    --input_format="recordio" \
+    --input_format="wikisplit" \
     --use_weighted_labels="True"
 
 rm -rf "${DATA_DIRECTORY}/model_insertion"
@@ -152,7 +152,7 @@ python run_felix.py \
     --use_pointing="${USE_POINTING}" \
     --learning_rate="0.00003" \
     --pointing_weight="1" \
-    --input_format="recordio" \
+    --input_format="wikisplit" \
     --train_insertion="True"
 ```
 
