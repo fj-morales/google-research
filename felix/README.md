@@ -181,7 +181,7 @@ export PREDICTION_FILE=${OUTPUT_DIR}/pred.tsv
 python predict_main.py \
 --input_format="discofuse" \
 --predict_input_file="${DISCOFUSE_DIR}/test.tsv" \
---predict_output_file="${PREDICTION_FILE}"\
+--predict_output_file="${PREDICTION_FILE}" \
 --label_map_file="${OUTPUT_DIR}/label_map.json" \
 --vocab_file="${BERT_BASE_DIR}/vocab.txt" \
 --max_seq_length=128 \
